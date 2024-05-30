@@ -1,7 +1,7 @@
 import pandas as pd
 from kafka import KafkaProducer
 from json import dumps
-
+import time
 
 def produce():
     producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
@@ -12,6 +12,8 @@ def produce():
     while True:
         stock_record = df.sample(1).to_dict(orient="records")[0]
         producer.send('stocks', value=stock_record)
+        # wait for 30 seconds to send the next
+        time.sleep(30)
 
 
 if __name__ == "__main__":
