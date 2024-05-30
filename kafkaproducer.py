@@ -13,7 +13,7 @@ def produce():
         stock_record = df.sample(1).to_dict(orient="records")[0]
         producer.send('stocks', value=stock_record)
         # wait for 30 seconds to send the next
-        time.sleep(30)
+        time.sleep(3)
 
 
 if __name__ == "__main__":
