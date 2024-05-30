@@ -1,8 +1,6 @@
 import pandas as pd
 from kafka import KafkaProducer
-from time import sleep
 from json import dumps
-import json
 
 
 def produce():
